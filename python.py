@@ -1,176 +1,59 @@
 #!/usr/bin/python
 
-# -------------------------------
-print("1. FOR loop with break")
-# -------------------------------
-# Loop through numbers 0 to 9
-# Break the loop when i equals 5
-for i in range(10):
-    if i == 5:
-        print("Breaking at", i)
-        break
-    print("i =", i)
+# <true_statement> if <condition> else <false_statement>
+x = 10
+print("x is greater than 5") if x > 5 else print("x is 5 or less")
 
-print("\n-------------------------------\n")
+#   0           0 RESUME                   0
 
-# -------------------------------
-print("2. FOR loop with continue")
-# -------------------------------
-# Skip printing when i equals 2
-for i in range(5):
-    if i == 2:
-        print("continue")
-        continue  # Skip this iteration
-    print("i =", i)
+#   4           2 LOAD_CONST               0 (10)
+#               4 STORE_NAME               0 (x)
 
-print("\n-------------------------------\n")
+#   5           6 LOAD_NAME                0 (x)
+#               8 LOAD_CONST               1 (5)
+#              10 COMPARE_OP              68 (>)
+#              14 POP_JUMP_IF_FALSE        9 (to 34)
+#              16 PUSH_NULL
+#              18 LOAD_NAME                1 (print)
+#              20 LOAD_CONST               2 ('x is greater than 5')
+#              22 CALL                     1
+#              30 POP_TOP
+#              32 RETURN_CONST             4 (None)
+#         >>   34 PUSH_NULL
+#              36 LOAD_NAME                1 (print)
+#              38 LOAD_CONST               3 ('x is 5 or less')
+#              40 CALL                     1
+#              48 POP_TOP  
 
-# -------------------------------
-print("3. FOR loop with else (no break)")
-# -------------------------------
-# The else block will run because the loop finishes normally (no break)
-for i in range(5):
-    print(i)
+
+x = 10
+if x > 5:
+    print("x is greater than 5")
 else:
-    print("FOR loop finished without break.")
-
-print("\n-------------------------------\n")
-
-# -------------------------------
-print("4. FOR loop with break + else")
-# -------------------------------
-# The else block will NOT run because the loop ends with a break
-for i in range(5):
-    print(i)
-    if i == 3:
-        break
-else:
-    print("FOR loop finished without break.")
-
-print("\n-------------------------------\n")
-
-# -------------------------------
-print("5. WHILE loop with break")
-# -------------------------------
-# Count from 0 and break when x equals 5
-x = 0
-while x < 10:
-    if x == 5:
-        print("Breaking at", x)
-        break
-    print("x =", x)
-    x += 1
-
-print("\n-------------------------------\n")
-
-# -------------------------------
-print("6. WHILE loop with continue")
-# -------------------------------
-# Skip printing when x equals 3
-x = 0
-while x < 5:
-    x += 1
-    if x == 3:
-        continue  # Skip this iteration
-    print("x =", x)
-
-print("\n-------------------------------\n")
-
-# -------------------------------
-print("7. WHILE loop with else (no break)")
-# -------------------------------
-# The else block runs because the loop ends normally
-x = 0
-while x < 3:
-    print("x =", x)
-    x += 1
-else:
-    print("WHILE loop ended normally.")
-
-print("\n-------------------------------\n")
-
-# -------------------------------
-print("8. WHILE loop with break + else")
-# -------------------------------
-# The else block does NOT run because break was used
-x = 0
-while x < 5:
-    if x == 2:
-        break
-    print("x =", x)
-    x += 1
-else:
-    print("WHILE loop ended without break.")
-
-print("\n-------------------------------\n")
+    print("x is 5 or less")
 
 
 
-# 1. FOR loop with break
-# i = 0
-# i = 1
-# i = 2
-# i = 3
-# i = 4
-# Breaking at 5
+#   0           0 RESUME                   0
 
-# -------------------------------
+#  32           2 LOAD_CONST               0 (10)
+#               4 STORE_NAME               0 (x)
 
-# 2. FOR loop with continue
-# i = 0
-# i = 1
-# continue
-# i = 3
-# i = 4
+#  33           6 LOAD_NAME                0 (x)
+#               8 LOAD_CONST               1 (5)
+#              10 COMPARE_OP              68 (>)
+#              14 POP_JUMP_IF_FALSE        9 (to 34)
 
-# -------------------------------
+#  34          16 PUSH_NULL
+#              18 LOAD_NAME                1 (print)
+#              20 LOAD_CONST               2 ('x is greater than 5')
+#              22 CALL                     1
+#              30 POP_TOP
+#              32 RETURN_CONST             4 (None)
 
-# 3. FOR loop with else (no break)
-# 0
-# 1
-# 2
-# 3
-# 4
-# FOR loop finished without break.
-
-# -------------------------------
-
-# 4. FOR loop with break + else
-# 0
-# 1
-# 2
-# 3
-
-# -------------------------------
-
-# 5. WHILE loop with break
-# x = 0
-# x = 1
-# x = 2
-# x = 3
-# x = 4
-# Breaking at 5
-
-# -------------------------------
-
-# 6. WHILE loop with continue
-# x = 1
-# x = 2
-# x = 4
-# x = 5
-
-# -------------------------------
-
-# 7. WHILE loop with else (no break)
-# x = 0
-# x = 1
-# x = 2
-# WHILE loop ended normally.
-
-# -------------------------------
-
-# 8. WHILE loop with break + else
-# x = 0
-# x = 1
-
-# -------------------------------
+#  36     >>   34 PUSH_NULL
+#              36 LOAD_NAME                1 (print)
+#              38 LOAD_CONST               3 ('x is 5 or less')
+#              40 CALL                     1
+#              48 POP_TOP
+#              50 RETURN_CONST             4 (None)
