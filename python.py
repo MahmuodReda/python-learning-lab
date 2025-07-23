@@ -1,74 +1,176 @@
-#!/user/bin/python# Check if a character is in a string
-name = "Mahmoud"
+#!/usr/bin/python
 
-print("M" in name)      # True
-print("z" in name)      # False
-print("a" not in name)  # False
+# -------------------------------
+print("1. FOR loop with break")
+# -------------------------------
+# Loop through numbers 0 to 9
+# Break the loop when i equals 5
+for i in range(10):
+    if i == 5:
+        print("Breaking at", i)
+        break
+    print("i =", i)
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("2. FOR loop with continue")
+# -------------------------------
+# Skip printing when i equals 2
+for i in range(5):
+    if i == 2:
+        print("continue")
+        continue  # Skip this iteration
+    print("i =", i)
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("3. FOR loop with else (no break)")
+# -------------------------------
+# The else block will run because the loop finishes normally (no break)
+for i in range(5):
+    print(i)
+else:
+    print("FOR loop finished without break.")
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("4. FOR loop with break + else")
+# -------------------------------
+# The else block will NOT run because the loop ends with a break
+for i in range(5):
+    print(i)
+    if i == 3:
+        break
+else:
+    print("FOR loop finished without break.")
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("5. WHILE loop with break")
+# -------------------------------
+# Count from 0 and break when x equals 5
+x = 0
+while x < 10:
+    if x == 5:
+        print("Breaking at", x)
+        break
+    print("x =", x)
+    x += 1
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("6. WHILE loop with continue")
+# -------------------------------
+# Skip printing when x equals 3
+x = 0
+while x < 5:
+    x += 1
+    if x == 3:
+        continue  # Skip this iteration
+    print("x =", x)
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("7. WHILE loop with else (no break)")
+# -------------------------------
+# The else block runs because the loop ends normally
+x = 0
+while x < 3:
+    print("x =", x)
+    x += 1
+else:
+    print("WHILE loop ended normally.")
+
+print("\n-------------------------------\n")
+
+# -------------------------------
+print("8. WHILE loop with break + else")
+# -------------------------------
+# The else block does NOT run because break was used
+x = 0
+while x < 5:
+    if x == 2:
+        break
+    print("x =", x)
+    x += 1
+else:
+    print("WHILE loop ended without break.")
+
+print("\n-------------------------------\n")
 
 
 
-fruits = ["apple", "banana", "orange"]
+# 1. FOR loop with break
+# i = 0
+# i = 1
+# i = 2
+# i = 3
+# i = 4
+# Breaking at 5
 
-print("banana" in fruits)      # True
-print("grape" not in fruits)   # True
+# -------------------------------
 
-x=10
-y=10
-print("x is y:", x is y)  # True 
-print("id(x):", id(x))
-print("id(y):", id(y))
+# 2. FOR loop with continue
+# i = 0
+# i = 1
+# continue
+# i = 3
+# i = 4
 
+# -------------------------------
 
-y=20
-print("x is y:", x is y)  # False 
-print("id(x):", id(x))
-print("id(y):", id(y))
+# 3. FOR loop with else (no break)
+# 0
+# 1
+# 2
+# 3
+# 4
+# FOR loop finished without break.
 
+# -------------------------------
 
-# Define lists
-a = [1, 2, 3]
-b = a              # b points to the same list as a
-c = [1, 2, 3]      # c is a new list with the same content
-d = [1, 2, 3, 4]   # d has different content
+# 4. FOR loop with break + else
+# 0
+# 1
+# 2
+# 3
 
-# Compare with 'is' (identity)
-print("a is b:", a is b)  # True - same object
-print("a is c:", a is c)  # False - different objects, same values
-print("a is d:", a is d)  # False - different objects
+# -------------------------------
 
-# Compare with '==' (equality)
-print("a == c:", a == c)  # True - same content
-print("a == d:", a == d)  # False - different content
+# 5. WHILE loop with break
+# x = 0
+# x = 1
+# x = 2
+# x = 3
+# x = 4
+# Breaking at 5
 
-# Compare with 'is not'
-print("a is not c:", a is not c)  # True
+# -------------------------------
 
-# Print memory addresses using id()
-print("id(a):", id(a))
-print("id(b):", id(b))
-print("id(c):", id(c))
-print("id(d):", id(d))
+# 6. WHILE loop with continue
+# x = 1
+# x = 2
+# x = 4
+# x = 5
 
+# -------------------------------
 
+# 7. WHILE loop with else (no break)
+# x = 0
+# x = 1
+# x = 2
+# WHILE loop ended normally.
 
-# True
-# False
-# False
-# True
-# True
-# x is y: True
-# id(x): 140734356339416
-# id(y): 140734356339416
-# x is y: False
-# id(x): 140734356339416
-# id(y): 140734356339736
-# a is b: True
-# a is c: False
-# a is d: False
-# a == c: True
-# a == d: False
-# a is not c: True
-# id(a): 1680602288512
-# id(b): 1680602288512
-# id(c): 1680605064064
-# id(d): 1680605060224
+# -------------------------------
+
+# 8. WHILE loop with break + else
+# x = 0
+# x = 1
+
+# -------------------------------
