@@ -1,33 +1,43 @@
 #!/usr/bin/python
-import os
-import pyautogui
-import time
+# Example: Using OOP to manage students in a simple way
 
-# Safely get the Desktop path
-desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
+class Student:
+    # Constructor: initializes the student data
+    def __init__(self, name, age, grades):
+        self.name = name        # store student's name
+        self.age = age          # store student's age
+        self.grades = grades    # store list of grades
 
-# Ensure Desktop directory exists
-if not os.path.exists(desktop_path):
-    os.makedirs(desktop_path)
+    # Method: print student info with average grade
+    def print_info(self):
+        avg = sum(self.grades) / len(self.grades)
+        print(f"Name: {self.name}, Age: {self.age}, Average Grade: {avg:.2f}")
 
-# Define the file path
-filename = os.path.join(desktop_path, "contact_info.txt")
+    # Method: add a new grade
+    def add_grade(self, grade):
+        self.grades.append(grade)
+        print(f"Added grade {grade} for {self.name}")
 
-# Write your info
-name = "Mahmood Reda"
-email = "mr4141705@gmail.com"
+    # Method: check if student passed (average >= 60)
+    def has_passed(self):
+        avg = sum(self.grades) / len(self.grades)
+        return avg >= 60
 
-with open(filename, "w", encoding="utf-8") as file:
-    file.write(f"Name: {name}\n")
-    file.write(f"E-mail: {email}\n")
 
-print(f"✅ File created at: {filename}")
+# Create student objects
+student1 = Student("Ahmed", 20, [90, 85, 88])
+student2 = Student("Mona", 22, [55, 60, 58])
 
-# Open file automatically using pyautogui
-time.sleep(2)
-pyautogui.press("win")
-time.sleep(3)
-pyautogui.write(r"C:\Users\MAHMOOD_REDA\Desktop\contact_info.txt", interval=0.05)
-time.sleep(2)
-pyautogui.press("enter")
+# Print their info
+student1.print_info()
+student2.print_info()
+
+# Add a new grade to Ahmed
+student1.add_grade(95)
+student1.print_info()
+
+# Check pass/fail status
+print(f"Did {student1.name} pass? {student1.has_passed()}")
+print(f"Did {student2.name} pass? {student2.has_passed()}")
+
 
