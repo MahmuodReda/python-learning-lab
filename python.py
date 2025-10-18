@@ -1,27 +1,14 @@
-#!/user/bin/python
-import threading   # Import threading library to create threads
-from time import sleep   # Import sleep function to pause execution
+import socket  # Import socket module
 
-# Task 1 function
-def task1():
-    while True:  # Infinite loop
-        print("Task 1")   # Print message
-        sleep(1)          # Pause for 1 second
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create TCP socket using IPv4
 
-# Task 2 function
-def task2():
-    while True:  # Infinite loop
-        print("Task 2")   # Print message
-        sleep(1)          # Pause for 1 second
+client.connect(("127.0.0.1", 5555))  # Connect to server at localhost and port 5555
 
-# Create and start threads
-t1 = threading.Thread(target=task1)   # Create thread for task1
-t2 = threading.Thread(target=task2)   # Create thread for task2
+message = input("Please enter the message that you want to send to the server: ")  # Get user input
 
-t1.start()  # Start thread 1
-t2.start()  # Start thread 2
+client.send(message.encode("utf-8"))  # Send message to server
 
-# Main thread work
-while True:  
-    print("Main Thread")   # Print message for main thread
-    sleep(1)               # Pause for 1 second
+print("Server is sending you a message...")  # Notify user
+print(client.recv(1024).decode("utf-8"))  # Receive and print server response
+
+# client.close()  # Close the connection
